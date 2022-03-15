@@ -1,6 +1,7 @@
 from redbot.core import commands
 import random
 import asyncio
+import discord
 
 class RussianRoulette(commands.Cog):
     """russian roulette tbh"""
