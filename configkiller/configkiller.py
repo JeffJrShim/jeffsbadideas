@@ -1,4 +1,4 @@
-from redbot.core import commands
+from redbot.core import commands, Config
 import random
 import asyncio
 import discord
@@ -25,13 +25,12 @@ class ConfigKiller(commands.Cog):
         self.config.register_guild(**default_guild)
 
     @commands.command()
-    @checks.admin_or_permissions(manage_guild=True)
     async def setbaz(self, ctx, new_value):
         await self.config.guild(ctx.guild).baz.set(new_value)
         await ctx.send("Value of baz has been changed!")
 
     @commands.command()
-    @checks.is_owner()
+    @commands.is_owner()
     async def setfoobar(self, ctx, new_value):
         await self.config.foobar.set(new_value)
         await ctx.send("k")
