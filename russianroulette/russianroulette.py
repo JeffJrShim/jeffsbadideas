@@ -11,7 +11,7 @@ class RussianRoulette(commands.Cog):
         self.bot = bot
         self.config = Config.get_conf(self, identifier=723841)
         default_guild = {
-            chances : 6
+            "chances" : 6
         }
         self.config.register_guild(**default_guild)
 
