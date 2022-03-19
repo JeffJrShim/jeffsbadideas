@@ -18,7 +18,7 @@ class RussianRoulette(commands.Cog):
     @commands.command()
     async def russianroulette(self, ctx):
         """try your luck"""
-        russianroulettegenerator=random.randint(1,chances)
+        russianroulettegenerator=random.randint(1,chances_val)
         embed = discord.Embed(
             description="You pulled the trigger and...", color=await ctx.embed_color()
             )
