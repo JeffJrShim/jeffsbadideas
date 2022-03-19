@@ -32,7 +32,7 @@ class RussianRoulette(commands.Cog):
             await msg.edit(embed=embed2)
         else: 
             embed3 = discord.Embed(
-                description=f"You pulled the trigger and...\n\nBANG! You're safe!",
+                description=f"You pulled the trigger and...\n\nClick! You're safe!",
                 color=await ctx.embed_color(),
             )
             await msg.edit(embed=embed3)
