@@ -24,6 +24,7 @@ class RussianRoulette(commands.Cog):
             description="You pulled the trigger and...", color=await ctx.embed_color()
             )
         msg = await ctx.send(embed=embed)
+        await asyncio.sleep(3)
         if russianroulettegenerator == 3:
             embed2 = discord.Embed(
                 description=f"You pulled the trigger and...\n\nBANG! You're dead!",
