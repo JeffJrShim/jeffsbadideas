@@ -16,6 +16,7 @@ class RussianRoulette(commands.Cog):
         self.config.register_guild(**default_guild)
 
     @commands.command()
+    @commands.max_concurrency(1, commands.BucketType.channel)
     async def russianroulette(self, ctx):
         """try your luck"""
         chances_val = await self.config.guild(ctx.guild).chances()
@@ -45,8 +46,8 @@ class RussianRoulette(commands.Cog):
         pass
     
     @commands.mod()
-    @russianrouletteset.command()
-    async def setdefault(self, ctx, new_value: int = 6):
+    @russianrouletteset.command(alias=["chances"])
+    async def chamber(self, ctx, new_value: int = 6):
         """Sets the chamber value for the Russian Roulette."""
         if new_value < 6:
             return await ctx.send("The new value cannot be less than 6! Sorry D:")
