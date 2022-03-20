@@ -50,9 +50,9 @@ class RussianRoulette(commands.Cog):
     async def chamber(self, ctx, new_value: int = 6):
         """Sets the chamber value for the Russian Roulette."""
         if new_value < 6:
-            return await ctx.send("The new value cannot be less than 6! Sorry D:")
+            return await ctx.send("The chamber value cannot be less than 6.")
         elif new_value > 50:
-            return await ctx.send("What are you? Trying to rig my system? Ain't no way buddy. The maximum here is 50.")
+            return await ctx.send("The chamber value cannot be more than 50.")
         else:
             await self.config.guild(ctx.guild).new_value.set(new_value)
             await ctx.send("The new value has been set.")
