@@ -10,9 +10,7 @@ class RussianRoulette(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.config = Config.get_conf(self, identifier=723841)
-        default_guild = {
-            "chances" : 6
-        }
+        default_guild = {"chances": 6}
         self.config.register_guild(**default_guild)
 
     @commands.command()
@@ -20,10 +18,10 @@ class RussianRoulette(commands.Cog):
     async def russianroulette(self, ctx):
         """try your luck"""
         chances_val = await self.config.guild(ctx.guild).chances()
-        russianroulettegenerator=random.randint(1,chances_val)
+        russianroulettegenerator = random.randint(1, chances_val)
         embed = discord.Embed(
             description="You pulled the trigger and...", color=await ctx.embed_color()
-            )
+        )
         msg = await ctx.send(embed=embed)
         await asyncio.sleep(3)
         if russianroulettegenerator == 3:
@@ -32,19 +30,19 @@ class RussianRoulette(commands.Cog):
                 color=await ctx.embed_color(),
             )
             await msg.edit(embed=embed2)
-        else: 
+        else:
             embed3 = discord.Embed(
                 description=f"You pulled the trigger and...\n\nClick! You're safe!",
                 color=await ctx.embed_color(),
             )
             await msg.edit(embed=embed3)
-    
+
     @commands.mod()
     @commands.group()
     async def russianrouletteset(self, ctx):
         """Set defaults for the russian roulette"""
         pass
-    
+
     @commands.mod()
     @russianrouletteset.command(alias=["chances"])
     async def chamber(self, ctx, new_value: int = 6):
@@ -56,4 +54,3 @@ class RussianRoulette(commands.Cog):
         else:
             await self.config.guild(ctx.guild).new_value.set(new_value)
             await ctx.send("The new value has been set.")
-        
