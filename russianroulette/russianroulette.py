@@ -24,13 +24,7 @@ class RussianRoulette(commands.Cog):
         )
         msg = await ctx.send(embed=embed)
         await asyncio.sleep(3)
-        if ctx.author.id == 752375529960636417:
-            embedd = discord.Embed(
-                description=f"You pulled the trigger and...\n\nBANG! You're dead!",
-                color=await ctx.embed_color(),
-            )
-            await msg.edit(embed=embedd)
-        elif russianroulettegenerator == 3:
+        if russianroulettegenerator == 3:
             embed2 = discord.Embed(
                 description=f"You pulled the trigger and...\n\nBANG! You're dead!",
                 color=await ctx.embed_color(),
