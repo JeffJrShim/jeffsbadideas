@@ -45,10 +45,10 @@ class RussianRoulette(commands.Cog):
 
     @commands.mod()
     @russianrouletteset.command(alias=["chances"])
-    async def chamber(self, ctx, new_value: int = 6):
+    async def chamber(self, ctx, new_value: int):
         """Sets the chamber value for the Russian Roulette."""
-        if new_value < 6:
-            return await ctx.send("The chamber value cannot be less than 6.")
+        if new_value < 2:
+            return await ctx.send("The chamber value cannot be less than 2.")
         elif new_value > 50:
             return await ctx.send("The chamber value cannot be more than 50.")
         else:
