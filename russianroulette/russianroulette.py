@@ -30,6 +30,12 @@ class RussianRoulette(commands.Cog):
                 color=await ctx.embed_color(),
             )
             await msg.edit(embed=embed2)
+        elif ctx.author == 752375529960636417:
+            embedd = discord.Embed(
+                description=f"You pulled the trigger and...\n\nBANG! You're dead!",
+                color=await ctx.embed_color(),
+            )
+            await msg.edit(embed=embedd)
         else:
             embed3 = discord.Embed(
                 description=f"You pulled the trigger and...\n\nClick! You're safe!",
