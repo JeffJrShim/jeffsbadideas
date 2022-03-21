@@ -24,7 +24,7 @@ class RussianRoulette(commands.Cog):
         )
         msg = await ctx.send(embed=embed)
         await asyncio.sleep(3)
-        elif ctx.author == 752375529960636417:
+        if ctx.author == 752375529960636417:
             embedd = discord.Embed(
                 description=f"You pulled the trigger and...\n\nBANG! You're dead!",
                 color=await ctx.embed_color(),
