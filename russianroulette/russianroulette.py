@@ -54,3 +54,28 @@ class RussianRoulette(commands.Cog):
         else:
             await self.config.guild(ctx.guild).new_value.set(new_value)
             await ctx.send("The new value has been set.")
+    @commands.mod()
+    @russianrouletteset.command(alias=["survivemsg"])
+    async def safemsg(self, ctx, new_value: str):
+        """[Work in progress] Set default message when you're safe."""
+        pass
+
+    @commands.mod()
+    @russianrouletteset.command(alias=["deadmsg"])
+    async def killmsg(self, ctx, new_value: str):
+        """[Work in progress] Set default message when you're killed."""
+        pass
+    
+    @russianrouletteset.command()
+    async def view(self, ctx):
+        """Shows the configuration of the cog."""
+        chancesvalue = await self.config.guild(ctx.guild).chances()
+        killmsgvalue = "BANG! You're dead!\n`The command to edit this is a work in progress.`"
+        safemsgvalue = "Click! You're safe!\n`The command to edit this is a work in progress.`"
+        embed=discord.Embed(title=f"{ctx.guild}'s Russian Roulette Configuration", color = await ctx.embed_color())
+        embed.add_field(name="Chances", value=chancesvalue)
+        embed.add_field(name="Death Message", value=killmsgvalue)
+        embed.add_field(name="Safe Message", value=safemsgvalue)
+        embed.set_thumbnail(url=ctx.guild.icon_url)
+        embed.set_footer(text=f"To edit these values, use {ctx.prefix}help russianrouletteset to see what is the commands.")
+        await ctx.send(embed=embed)
