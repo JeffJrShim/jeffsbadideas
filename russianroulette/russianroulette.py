@@ -73,9 +73,9 @@ class RussianRoulette(commands.Cog):
         killmsgvalue = "BANG! You're dead!\n`The command to edit this is a work in progress.`"
         safemsgvalue = "Click! You're safe!\n`The command to edit this is a work in progress.`"
         embed=discord.Embed(title=f"{ctx.guild}'s Russian Roulette Configuration", color = await ctx.embed_color())
-        embed.add_field(name="Chances", value=chancesvalue)
-        embed.add_field(name="Death Message", value=killmsgvalue)
-        embed.add_field(name="Safe Message", value=safemsgvalue)
+        embed.add_field(name="Chances", value=chancesvalue, inline=False)
+        embed.add_field(name="Death Message", value=killmsgvalue, inline=False)
+        embed.add_field(name="Safe Message", value=safemsgvalue, inline=False)
         embed.set_thumbnail(url=ctx.guild.icon_url)
-        embed.set_footer(text=f"To edit these values, use {ctx.prefix}help russianrouletteset to see what is the commands.")
+        embed.set_footer(text=f"To edit these values, use {ctx.prefix}help russianrouletteset to see the commands.")
         await ctx.send(embed=embed)
