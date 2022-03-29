@@ -52,7 +52,7 @@ class RussianRoulette(commands.Cog):
         elif new_value > 50:
             return await ctx.send("The chamber value cannot be more than 50.")
         else:
-            await self.config.guild(ctx.guild).new_value.set(new_value)
+            await self.config.guild(ctx.guild).chances.set(new_value)
             await ctx.send("The new value has been set.")
 
     @commands.mod()
