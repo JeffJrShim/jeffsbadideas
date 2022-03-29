@@ -56,13 +56,13 @@ class RussianRoulette(commands.Cog):
             await ctx.send("The new value has been set.")
 
     @commands.mod()
-    @russianrouletteset.command(alias=["survivemsg"])
+    @russianrouletteset.command(alias=["survivemsg"], hidden=True)
     async def safemsg(self, ctx, new_value: str):
         """[Work in progress] Set default message when you're safe."""
         pass
 
     @commands.mod()
-    @russianrouletteset.command(alias=["deadmsg"])
+    @russianrouletteset.command(alias=["deadmsg"], hidden=True)
     async def killmsg(self, ctx, new_value: str):
         """[Work in progress] Set default message when you're killed."""
         pass
